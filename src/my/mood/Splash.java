@@ -31,7 +31,7 @@ public class Splash extends JFrame implements Runnable{
         try{
             Thread.sleep(8000);
             setVisible(false);
-            // new Login().setVisible(true);
+            new Login().setVisible(true);
         }
         catch(InterruptedException e){
             System.out.println(e);

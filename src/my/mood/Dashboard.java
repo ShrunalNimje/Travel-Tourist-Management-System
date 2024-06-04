@@ -200,10 +200,8 @@ public class Dashboard extends JFrame implements ActionListener{
             setVisible(false);
             new Login().setVisible(true);
         }
-        else{
-
-        }
     }
+
     public static void main(String [] args){
 
         new Dashboard();
