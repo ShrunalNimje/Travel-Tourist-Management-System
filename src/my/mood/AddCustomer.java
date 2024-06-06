@@ -22,8 +22,14 @@ public class AddCustomer extends JFrame implements ActionListener{
 
         setSize(1200, 600);
         setLocation(150, 150);
-        getContentPane().setBackground(Color.white);
+        getContentPane().setBackground(Color.orange);
         setLayout(null);
+
+        JLabel text = new JLabel("Add your Details here!");
+        text.setBounds(150, 10, 500, 25);
+        text.setFont(new Font("Arial", Font.BOLD, 24));
+        text.setForeground(Color.gray);
+        add(text);
 
         JLabel usernameL = new JLabel("Username :");
         usernameL.setBounds(100, 50, 150, 20);
@@ -114,13 +120,13 @@ public class AddCustomer extends JFrame implements ActionListener{
         maleRB = new JRadioButton("Male");
         maleRB.setBounds(300, 400, 120, 20);
         maleRB.setFont(new Font("Raleway", Font.PLAIN, 16));
-        maleRB.setBackground(Color.white);
+        maleRB.setBackground(Color.orange);
         add(maleRB);
 
         femaleRB = new JRadioButton("Female");
         femaleRB.setBounds(430, 400, 120, 20);
         femaleRB.setFont(new Font("Raleway", Font.PLAIN, 16));
-        femaleRB.setBackground(Color.white);
+        femaleRB.setBackground(Color.orange);
         add(femaleRB);
 
         ButtonGroup genderGroup = new ButtonGroup();
@@ -143,7 +149,6 @@ public class AddCustomer extends JFrame implements ActionListener{
         cancel.setFont(new Font("Raleway", Font.BOLD, 16));
         cancel.setBackground(Color.gray);
         cancel.setForeground(Color.white);
-        cancel.setBorder(new LineBorder(Color.black));
         cancel.addActionListener(this);
         add(cancel);
 
@@ -152,7 +157,6 @@ public class AddCustomer extends JFrame implements ActionListener{
         add.setFont(new Font("Raleway", Font.BOLD, 16));
         add.setBackground(Color.gray);
         add.setForeground(Color.white);
-        add.setBorder(new LineBorder(Color.black));
         add.addActionListener(this);
         add(add);
 

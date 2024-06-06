@@ -11,7 +11,7 @@ public class Splash extends JFrame implements Runnable{
 
         setTitle("TRAVEL AND TOURISM MANAGEMENT SYSTEM");
 
-        ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("icons/Splash1.jpg"));
+        ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("icons/Splash(1).jpg"));
         Image i2 = i1.getImage().getScaledInstance(1200, 600, Image.SCALE_DEFAULT);
         ImageIcon i3 = new ImageIcon(i2);
 

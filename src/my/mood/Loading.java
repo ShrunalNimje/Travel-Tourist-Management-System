@@ -58,7 +58,7 @@ public class Loading extends JFrame implements Runnable{
                 }
                 else{
                     setVisible(false);
-                    new Dashboard();
+                    new Dashboard(username);
 
                 }
             }

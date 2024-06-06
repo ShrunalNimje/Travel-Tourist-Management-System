@@ -15,8 +15,11 @@ public class Dashboard extends JFrame implements ActionListener{
             destination, payment,
             calculator, notepad,
             about, back;
+    String username;
 
-    public Dashboard(){
+    public Dashboard(String username){
+
+        this.username = username;
 
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         setLayout(null);
@@ -62,6 +65,7 @@ public class Dashboard extends JFrame implements ActionListener{
         addPersonalDetails.setForeground(Color.black);
         addPersonalDetails.setBackground(Color.gray);
         addPersonalDetails.setBorder(new LineBorder(Color.white));
+        addPersonalDetails.addActionListener(this);
         p2.add(addPersonalDetails);
 
         updatePersonalDetails = new JButton("Update Details");
@@ -70,6 +74,7 @@ public class Dashboard extends JFrame implements ActionListener{
         updatePersonalDetails.setForeground(Color.black);
         updatePersonalDetails.setBackground(Color.gray);
         updatePersonalDetails.setBorder(new LineBorder(Color.white));
+        updatePersonalDetails.addActionListener(this);
         p2.add(updatePersonalDetails);
 
         viewDetails = new JButton("View Details");
@@ -78,6 +83,7 @@ public class Dashboard extends JFrame implements ActionListener{
         viewDetails.setForeground(Color.black);
         viewDetails.setBackground(Color.gray);
         viewDetails.setBorder(new LineBorder(Color.white));
+        viewDetails.addActionListener(this);
         p2.add(viewDetails);
 
         deleteDetails = new JButton("Delete details");
@@ -86,6 +92,7 @@ public class Dashboard extends JFrame implements ActionListener{
         deleteDetails.setForeground(Color.black);
         deleteDetails.setBackground(Color.gray);
         deleteDetails.setBorder(new LineBorder(Color.white));
+        deleteDetails.addActionListener(this);
         p2.add(deleteDetails);
 
         viewPackage = new JButton("View packages");
@@ -94,6 +101,7 @@ public class Dashboard extends JFrame implements ActionListener{
         viewPackage.setForeground(Color.black);
         viewPackage.setBackground(Color.gray);
         viewPackage.setBorder(new LineBorder(Color.white));
+        viewPackage.addActionListener(this);
         p2.add(viewPackage);
 
         bookPackage = new JButton("Book package");
@@ -102,6 +110,7 @@ public class Dashboard extends JFrame implements ActionListener{
         bookPackage.setForeground(Color.black);
         bookPackage.setBackground(Color.gray);
         bookPackage.setBorder(new LineBorder(Color.white));
+        bookPackage.addActionListener(this);
         p2.add(bookPackage);
 
         viewBookPackage = new JButton("View book package");
@@ -110,6 +119,7 @@ public class Dashboard extends JFrame implements ActionListener{
         viewBookPackage.setForeground(Color.black);
         viewBookPackage.setBackground(Color.gray);
         viewBookPackage.setBorder(new LineBorder(Color.white));
+        viewBookPackage.addActionListener(this);
         p2.add(viewBookPackage);
 
         viewHotel = new JButton("View hotels");
@@ -118,6 +128,7 @@ public class Dashboard extends JFrame implements ActionListener{
         viewHotel.setForeground(Color.black);
         viewHotel.setBackground(Color.gray);
         viewHotel.setBorder(new LineBorder(Color.white));
+        viewHotel.addActionListener(this);
         p2.add(viewHotel);
 
         bookHotel = new JButton(" Book hotel");
@@ -126,6 +137,7 @@ public class Dashboard extends JFrame implements ActionListener{
         bookHotel.setForeground(Color.black);
         bookHotel.setBackground(Color.gray);
         bookHotel.setBorder(new LineBorder(Color.white));
+        bookHotel.addActionListener(this);
         p2.add(bookHotel);
 
         viewBookHotel = new JButton("View book hotel");
@@ -134,6 +146,7 @@ public class Dashboard extends JFrame implements ActionListener{
         viewBookHotel.setForeground(Color.black);
         viewBookHotel.setBackground(Color.gray);
         viewBookHotel.setBorder(new LineBorder(Color.white));
+        viewBookHotel.addActionListener(this);
         p2.add(viewBookHotel);
 
         destination = new JButton("Destination");
@@ -142,6 +155,7 @@ public class Dashboard extends JFrame implements ActionListener{
         destination.setForeground(Color.black);
         destination.setBackground(Color.gray);
         destination.setBorder(new LineBorder(Color.white));
+        destination.addActionListener(this);
         p2.add(destination);
 
         payment = new JButton("Payment");
@@ -150,6 +164,7 @@ public class Dashboard extends JFrame implements ActionListener{
         payment.setForeground(Color.black);
         payment.setBackground(Color.gray);
         payment.setBorder(new LineBorder(Color.white));
+        payment.addActionListener(this);
         p2.add(payment);
 
         calculator = new JButton("Calculator");
@@ -158,6 +173,7 @@ public class Dashboard extends JFrame implements ActionListener{
         calculator.setForeground(Color.black);
         calculator.setBackground(Color.gray);
         calculator.setBorder(new LineBorder(Color.white));
+        calculator.addActionListener(this);
         p2.add(calculator);
 
         notepad = new JButton("Notepad");
@@ -166,6 +182,7 @@ public class Dashboard extends JFrame implements ActionListener{
         notepad.setForeground(Color.black);
         notepad.setBackground(Color.gray);
         notepad.setBorder(new LineBorder(Color.white));
+        notepad.addActionListener(this);
         p2.add(notepad);
 
         about = new JButton("About");
@@ -174,6 +191,7 @@ public class Dashboard extends JFrame implements ActionListener{
         about.setForeground(Color.black);
         about.setBackground(Color.gray);
         about.setBorder(new LineBorder(Color.white));
+        about.addActionListener(this);
         p2.add(about);
 
         ImageIcon i11 = new ImageIcon(ClassLoader.getSystemResource("icons/home.jpg"));
@@ -200,11 +218,23 @@ public class Dashboard extends JFrame implements ActionListener{
             setVisible(false);
             new Login().setVisible(true);
         }
+        else if(ae.getSource() == addPersonalDetails){
+            new AddCustomer(username).setVisible(true);
+        }
+        else if(ae.getSource() == updatePersonalDetails){
+            new UpdateCustomer(username).setVisible(true);
+        }
+        else if(ae.getSource() == viewDetails){
+            new ViewCustomer(username).setVisible(true);
+        }
+        else if(ae.getSource() == viewPackage){
+            new ViewPackage().setVisible(true);
+        }
     }
 
     public static void main(String [] args){
 
-        new Dashboard();
+        new Dashboard("");
 
     }
 }

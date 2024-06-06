@@ -21,7 +21,7 @@ public class ViewCustomer extends JFrame implements ActionListener{
 
         setSize(1200, 600);
         setLocation(150, 150);
-        getContentPane().setBackground(Color.white);
+        getContentPane().setBackground(Color.orange);
         setLayout(null);
 
         JLabel usernameL = new JLabel("Username :");
@@ -128,11 +128,11 @@ public class ViewCustomer extends JFrame implements ActionListener{
         add(back);
 
         ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("icons/viewData-removebg-preview.png"));
-        Image i2 = i1.getImage().getScaledInstance(800, 600, Image.SCALE_DEFAULT);
+        Image i2 = i1.getImage().getScaledInstance(600, 500, Image.SCALE_DEFAULT);
         ImageIcon i3 = new ImageIcon(i2);
 
         JLabel image = new JLabel(i3);
-        image.setBounds(580, 20, 600, 500);
+        image.setBounds(600, 50, 600, 500);
         add(image);
 
         try{
