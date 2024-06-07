@@ -228,7 +228,13 @@ public class Dashboard extends JFrame implements ActionListener{
             new ViewCustomer(username).setVisible(true);
         }
         else if(ae.getSource() == viewPackage){
-            new ViewPackage().setVisible(true);
+            new ViewPackage(username).setVisible(true);
+        }
+        else if(ae.getSource() == bookPackage){
+            new BookPackage(username).setVisible(true);
+        }
+        else if(ae.getSource() == viewBookPackage){
+            new ViewBookedPackage(username).setVisible(true);
         }
     }
 

@@ -5,7 +5,11 @@ import javax.swing.*;
 
 public class ViewPackage extends JFrame{
 
-    public ViewPackage(){
+    String username;
+
+    public ViewPackage(String username){
+
+        this.username = username;
 
         setSize(1200, 600);
         setLocation(150, 150);
@@ -169,7 +173,7 @@ public class ViewPackage extends JFrame{
     }
     public static void main(String [] args){
 
-        new ViewPackage();
+        new ViewPackage("");
 
     }
 }
