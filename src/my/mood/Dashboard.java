@@ -236,6 +236,12 @@ public class Dashboard extends JFrame implements ActionListener{
         else if(ae.getSource() == viewBookPackage){
             new ViewBookedPackage(username).setVisible(true);
         }
+        else if(ae.getSource() == viewHotel){
+            new ViewHotels(username).setVisible(true);
+        }
+        else if(ae.getSource() == destination){
+            new Destination(username).setVisible(true);
+        }
     }
 
     public static void main(String [] args){
