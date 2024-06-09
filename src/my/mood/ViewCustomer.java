@@ -8,7 +8,7 @@ import java.sql.*;
 
 public class ViewCustomer extends JFrame implements ActionListener{
 
-    JButton back;
+    JButton back, delete;
     String username;
     JLabel usernameL1, idL1,
             idNumL1, nameL1,
@@ -23,6 +23,12 @@ public class ViewCustomer extends JFrame implements ActionListener{
         setLocation(150, 150);
         getContentPane().setBackground(Color.orange);
         setLayout(null);
+
+        JLabel text = new JLabel("View or delete your Details here!");
+        text.setBounds(150, 10, 500, 25);
+        text.setFont(new Font("Arial", Font.BOLD, 24));
+        text.setForeground(Color.gray);
+        add(text);
 
         JLabel usernameL = new JLabel("Username :");
         usernameL.setBounds(100, 50, 150, 20);
@@ -118,8 +124,17 @@ public class ViewCustomer extends JFrame implements ActionListener{
         addressL1.setFont(new Font("Raleway", Font.PLAIN, 16));
         add(addressL1);
 
+        delete = new JButton("DELETE DETAILS");
+        delete.setBounds(430, 500, 150, 25);
+        delete.setFont(new Font("Raleway", Font.BOLD, 16));
+        delete.setBackground(Color.gray);
+        delete.setForeground(Color.white);
+        delete.setBorder(new LineBorder(Color.black));
+        delete.addActionListener(this);
+        add(delete);
+
         back = new JButton("BACK");
-        back.setBounds(430, 500, 100, 25);
+        back.setBounds(230, 500, 100, 25);
         back.setFont(new Font("Raleway", Font.BOLD, 16));
         back.setBackground(Color.gray);
         back.setForeground(Color.white);
@@ -162,7 +177,27 @@ public class ViewCustomer extends JFrame implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent ae){
-        setVisible(false);
+        if (ae.getSource() == back){
+            setVisible(false);
+        }
+        else if (ae.getSource() == delete){
+            try {
+                DBConnection DBc = new DBConnection();
+                String query = "delete from Customer where username = '"+username+"'";
+                String query1 = "delete from Package where username = '"+username+"'";
+                // String query2 = "delete from Hotel where username = '"+username+"'";
+                DBc.s.executeUpdate(query);
+                DBc.s.executeUpdate(query1);
+                // DBc.s.executeUpdate(query2);
+
+                JOptionPane.showMessageDialog(null, "Details deleted successfully!");
+
+                setVisible(false);
+            }
+            catch (Exception e){
+                System.out.println(e);
+            }
+        }
     }
 
     public static void main(String [] args){

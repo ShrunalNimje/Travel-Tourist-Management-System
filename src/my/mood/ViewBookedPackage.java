@@ -9,9 +9,7 @@ public class ViewBookedPackage extends JFrame implements ActionListener {
 
     String username;
     JLabel usernameL1, nameL1, phoneL1, countryL1, emailL1, costL1, selectL1, coupleL1;
-    JButton back, price, book;
-    JComboBox selectCB;
-    JTextField coupleTF;
+    JButton back, cancel;
 
     public ViewBookedPackage(String username){
 
@@ -24,7 +22,7 @@ public class ViewBookedPackage extends JFrame implements ActionListener {
         JLabel text = new JLabel("View Booked Package");
         text.setBounds(150, 20, 300, 30);
         text.setFont(new Font("Arial", Font.BOLD, 24));
-        text.setForeground(Color.black);
+        text.setForeground(Color.gray);
         add(text);
 
         JLabel usernameL = new JLabel("Username :");
@@ -109,12 +107,20 @@ public class ViewBookedPackage extends JFrame implements ActionListener {
 
 
         back = new JButton("BACK");
-        back.setBounds(300, 430, 120, 25);
+        back.setBounds(230, 430, 100, 25);
         back.setFont(new Font("Raleway", Font.BOLD, 18));
-        back.setBackground(Color.black);
+        back.setBackground(Color.gray);
         back.setForeground(Color.white);
         back.addActionListener(this);
         add(back);
+
+        cancel = new JButton("CANCEL TOUR");
+        cancel.setBounds(430, 430, 180, 25);
+        cancel.setFont(new Font("Raleway", Font.BOLD, 18));
+        cancel.setBackground(Color.gray);
+        cancel.setForeground(Color.white);
+        cancel.addActionListener(this);
+        add(cancel);
 
         ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("icons/viewBookedPackage-removebg-preview.png"));
         Image i2 = i1.getImage().getScaledInstance(500, 450, Image.SCALE_DEFAULT);
@@ -152,6 +158,20 @@ public class ViewBookedPackage extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent ae){
         if (ae.getSource() == back){
             setVisible(false);
+        }
+        else if (ae.getSource() == cancel){
+            try {
+                DBConnection DBc = new DBConnection();
+                String query = "delete from Package where username = '"+username+"'";
+                DBc.s.executeUpdate(query);
+
+                JOptionPane.showMessageDialog(null, "Your Package cancel successfully!");
+
+                setVisible(false);
+            }
+            catch (Exception e){
+                System.out.println(e);
+            }
         }
     }
 

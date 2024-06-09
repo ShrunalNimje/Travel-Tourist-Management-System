@@ -8,13 +8,13 @@ import java.awt.event.*;
 public class Dashboard extends JFrame implements ActionListener{
 
     JButton addPersonalDetails, updatePersonalDetails,
-            viewDetails, deleteDetails,
+            viewDeleteDetails, deleteAccount,
             viewPackage, bookPackage,
             viewBookPackage, viewHotel,
             bookHotel, viewBookHotel,
             destination, payment,
             calculator, notepad,
-            about, back;
+            about, logOut;
     String username;
 
     public Dashboard(String username){
@@ -44,14 +44,14 @@ public class Dashboard extends JFrame implements ActionListener{
         text.setForeground(Color.white);
         p1.add(text);
 
-        back = new JButton("Back");
-        back.setFont(new Font("Raleway", Font.PLAIN, 18));
-        back.setBounds(1400, 10, 100, 30);
-        back.setForeground(Color.white);
-        back.setBackground(Color.black);
-        back.setBorder(new LineBorder(Color.white));
-        back.addActionListener(this);
-        p1.add(back);
+        logOut = new JButton("LOG OUT");
+        logOut.setFont(new Font("Raleway", Font.BOLD, 18));
+        logOut.setBounds(1350, 10, 120, 30);
+        logOut.setForeground(Color.black);
+        logOut.setBackground(Color.gray);
+        logOut.setBorder(new LineBorder(Color.black));
+        logOut.addActionListener(this);
+        p1.add(logOut);
 
         JPanel p2 = new JPanel();
         p2.setBounds(0, 50, 220, 1000);
@@ -77,23 +77,23 @@ public class Dashboard extends JFrame implements ActionListener{
         updatePersonalDetails.addActionListener(this);
         p2.add(updatePersonalDetails);
 
-        viewDetails = new JButton("View Details");
-        viewDetails.setFont(new Font("Raleway", Font.PLAIN, 18));
-        viewDetails.setBounds(0, 100, 220, 50);
-        viewDetails.setForeground(Color.black);
-        viewDetails.setBackground(Color.gray);
-        viewDetails.setBorder(new LineBorder(Color.white));
-        viewDetails.addActionListener(this);
-        p2.add(viewDetails);
+        viewDeleteDetails = new JButton("View / Delete Details");
+        viewDeleteDetails.setFont(new Font("Raleway", Font.PLAIN, 18));
+        viewDeleteDetails.setBounds(0, 100, 220, 50);
+        viewDeleteDetails.setForeground(Color.black);
+        viewDeleteDetails.setBackground(Color.gray);
+        viewDeleteDetails.setBorder(new LineBorder(Color.white));
+        viewDeleteDetails.addActionListener(this);
+        p2.add(viewDeleteDetails);
 
-        deleteDetails = new JButton("Delete details");
-        deleteDetails.setFont(new Font("Raleway", Font.PLAIN, 18));
-        deleteDetails.setBounds(0, 150, 220, 50);
-        deleteDetails.setForeground(Color.black);
-        deleteDetails.setBackground(Color.gray);
-        deleteDetails.setBorder(new LineBorder(Color.white));
-        deleteDetails.addActionListener(this);
-        p2.add(deleteDetails);
+        deleteAccount = new JButton("Delete Account");
+        deleteAccount.setFont(new Font("Raleway", Font.PLAIN, 18));
+        deleteAccount.setBounds(0, 150, 220, 50);
+        deleteAccount.setForeground(Color.black);
+        deleteAccount.setBackground(Color.gray);
+        deleteAccount.setBorder(new LineBorder(Color.white));
+        deleteAccount.addActionListener(this);
+        p2.add(deleteAccount);
 
         viewPackage = new JButton("View packages");
         viewPackage.setFont(new Font("Raleway", Font.PLAIN, 18));
@@ -214,7 +214,10 @@ public class Dashboard extends JFrame implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent ae){
-        if(ae.getSource() == back){
+        if(ae.getSource() == logOut){
+
+            JOptionPane.showMessageDialog(null, "Account logged out successfully!");
+
             setVisible(false);
             new Login().setVisible(true);
         }
@@ -224,7 +227,7 @@ public class Dashboard extends JFrame implements ActionListener{
         else if(ae.getSource() == updatePersonalDetails){
             new UpdateCustomer(username).setVisible(true);
         }
-        else if(ae.getSource() == viewDetails){
+        else if(ae.getSource() == viewDeleteDetails){
             new ViewCustomer(username).setVisible(true);
         }
         else if(ae.getSource() == viewPackage){
@@ -241,6 +244,12 @@ public class Dashboard extends JFrame implements ActionListener{
         }
         else if(ae.getSource() == destination){
             new Destination(username).setVisible(true);
+        }
+        else if(ae.getSource() == deleteAccount){
+            new DeleteCustomer(username).setVisible(true);
+        }
+        else if(ae.getSource() == bookHotel){
+            new BookHotel(username).setVisible(true);
         }
     }
 

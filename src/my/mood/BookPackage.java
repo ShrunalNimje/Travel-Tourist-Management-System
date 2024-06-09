@@ -24,7 +24,7 @@ public class BookPackage extends JFrame implements ActionListener {
         JLabel text = new JLabel("Book Package");
         text.setBounds(150, 20, 300, 30);
         text.setFont(new Font("Arial", Font.BOLD, 24));
-        text.setForeground(Color.black);
+        text.setForeground(Color.gray);
         add(text);
 
         JLabel usernameL = new JLabel("Username :");
@@ -111,7 +111,7 @@ public class BookPackage extends JFrame implements ActionListener {
         back = new JButton("BACK");
         back.setBounds(100, 430, 120, 25);
         back.setFont(new Font("Raleway", Font.BOLD, 18));
-        back.setBackground(Color.black);
+        back.setBackground(Color.gray);
         back.setForeground(Color.white);
         back.addActionListener(this);
         add(back);
@@ -119,7 +119,7 @@ public class BookPackage extends JFrame implements ActionListener {
         price = new JButton("Cost");
         price.setBounds(300, 430, 120, 25);
         price.setFont(new Font("Raleway", Font.BOLD, 18));
-        price.setBackground(Color.black);
+        price.setBackground(Color.gray);
         price.setForeground(Color.white);
         price.addActionListener(this);
         add(price);
@@ -127,7 +127,7 @@ public class BookPackage extends JFrame implements ActionListener {
         book = new JButton("BOOK");
         book.setBounds(950, 500, 120, 25);
         book.setFont(new Font("Raleway", Font.BOLD, 18));
-        book.setBackground(Color.black);
+        book.setBackground(Color.gray);
         book.setForeground(Color.white);
         book.addActionListener(this);
         add(book);
