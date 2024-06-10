@@ -21,8 +21,8 @@ public class BookHotel extends JFrame implements ActionListener {
         setBounds( 150, 150, 1200, 600);
         getContentPane().setBackground(Color.orange);
 
-        JLabel text = new JLabel("Book Hotel");
-        text.setBounds(150, 20, 300, 30);
+        JLabel text = new JLabel("Book your Hotel here");
+        text.setBounds(150, 20, 400, 30);
         text.setFont(new Font("Arial", Font.BOLD, 24));
         text.setForeground(Color.gray);
         add(text);

@@ -185,10 +185,10 @@ public class ViewCustomer extends JFrame implements ActionListener{
                 DBConnection DBc = new DBConnection();
                 String query = "delete from Customer where username = '"+username+"'";
                 String query1 = "delete from Package where username = '"+username+"'";
-                // String query2 = "delete from Hotel where username = '"+username+"'";
+                String query2 = "delete from Hotel where username = '"+username+"'";
                 DBc.s.executeUpdate(query);
                 DBc.s.executeUpdate(query1);
-                // DBc.s.executeUpdate(query2);
+                DBc.s.executeUpdate(query2);
 
                 JOptionPane.showMessageDialog(null, "Details deleted successfully!");
 

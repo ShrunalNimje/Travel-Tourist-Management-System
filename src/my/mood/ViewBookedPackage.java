@@ -19,8 +19,8 @@ public class ViewBookedPackage extends JFrame implements ActionListener {
         setBounds( 150, 150, 1200, 600);
         getContentPane().setBackground(Color.orange);
 
-        JLabel text = new JLabel("View Booked Package");
-        text.setBounds(150, 20, 300, 30);
+        JLabel text = new JLabel("View or Cancel Booked Package");
+        text.setBounds(150, 20, 400, 30);
         text.setFont(new Font("Arial", Font.BOLD, 24));
         text.setForeground(Color.gray);
         add(text);

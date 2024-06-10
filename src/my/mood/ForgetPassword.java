@@ -9,7 +9,8 @@ import java.sql.*;
 public class ForgetPassword extends JFrame implements ActionListener{
 
     JButton back, fetch, check;
-    JTextField nameTF, usernameTF, passwordTF, answerTF, questionTF;
+    JTextField usernameTF, answerTF;
+    JLabel nameTF, passwordTF, questionTF;
 
     public ForgetPassword(){
 
@@ -66,7 +67,7 @@ public class ForgetPassword extends JFrame implements ActionListener{
         nameL.setBounds(50, 180, 150, 25);
         two.add(nameL);
 
-        nameTF = new JTextField();
+        nameTF = new JLabel();
         nameTF.setFont(new Font("Raleway", Font.PLAIN, 16));
         nameTF.setBounds(220, 180, 200, 25);
         nameTF.setBorder(new LineBorder(Color.yellow));
@@ -77,7 +78,7 @@ public class ForgetPassword extends JFrame implements ActionListener{
         questionL.setBounds(50, 230, 150, 25);
         two.add(questionL);
 
-        questionTF = new JTextField();
+        questionTF = new JLabel();
         questionTF.setFont(new Font("Raleway", Font.PLAIN, 16));
         questionTF.setBounds(220, 230, 200, 25);
         questionTF.setBorder(new LineBorder(Color.yellow));
@@ -108,7 +109,7 @@ public class ForgetPassword extends JFrame implements ActionListener{
         passwordL.setBounds(50, 330, 150, 25);
         two.add(passwordL);
 
-        passwordTF = new JTextField();
+        passwordTF = new JLabel();
         passwordTF.setFont(new Font("Raleway", Font.PLAIN, 16));
         passwordTF.setBounds(220, 330, 200, 25);
         passwordTF.setBorder(new LineBorder(Color.yellow));

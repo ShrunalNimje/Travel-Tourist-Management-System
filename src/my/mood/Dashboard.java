@@ -4,6 +4,7 @@ import java.awt.*;
 import javax.swing.*;
 import javax.swing.border.*;
 import java.awt.event.*;
+import java.io.IOException;
 
 public class Dashboard extends JFrame implements ActionListener{
 
@@ -28,6 +29,7 @@ public class Dashboard extends JFrame implements ActionListener{
         p1.setBounds(0, 0, 1550, 50);
         p1.setBackground(Color.gray);
         p1.setLayout(null);
+        p1.setBorder(new LineBorder(Color.white));
         add(p1);
 
         ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("icons/logo.png"));
@@ -41,7 +43,7 @@ public class Dashboard extends JFrame implements ActionListener{
         JLabel text = new JLabel("Dashboard");
         text.setBounds(80, 15, 120, 20);
         text.setFont(new Font("Raleway", Font.PLAIN, 24));
-        text.setForeground(Color.white);
+        text.setForeground(Color.BLACK);
         p1.add(text);
 
         logOut = new JButton("LOG OUT");
@@ -57,6 +59,7 @@ public class Dashboard extends JFrame implements ActionListener{
         p2.setBounds(0, 50, 220, 1000);
         p2.setBackground(Color.gray);
         p2.setLayout(null);
+        p2.setBorder(new LineBorder(Color.white));
         add(p2);
 
         addPersonalDetails = new JButton("Add Personal Details");
@@ -95,7 +98,7 @@ public class Dashboard extends JFrame implements ActionListener{
         deleteAccount.addActionListener(this);
         p2.add(deleteAccount);
 
-        viewPackage = new JButton("View packages");
+        viewPackage = new JButton("Show packages");
         viewPackage.setFont(new Font("Raleway", Font.PLAIN, 18));
         viewPackage.setBounds(0, 200, 220, 50);
         viewPackage.setForeground(Color.black);
@@ -113,7 +116,7 @@ public class Dashboard extends JFrame implements ActionListener{
         bookPackage.addActionListener(this);
         p2.add(bookPackage);
 
-        viewBookPackage = new JButton("View book package");
+        viewBookPackage = new JButton("View / Delete package");
         viewBookPackage.setFont(new Font("Raleway", Font.PLAIN, 18));
         viewBookPackage.setBounds(0, 300, 220, 50);
         viewBookPackage.setForeground(Color.black);
@@ -122,7 +125,7 @@ public class Dashboard extends JFrame implements ActionListener{
         viewBookPackage.addActionListener(this);
         p2.add(viewBookPackage);
 
-        viewHotel = new JButton("View hotels");
+        viewHotel = new JButton("Show hotels");
         viewHotel.setFont(new Font("Raleway", Font.PLAIN, 18));
         viewHotel.setBounds(0, 350, 220, 50);
         viewHotel.setForeground(Color.black);
@@ -140,7 +143,7 @@ public class Dashboard extends JFrame implements ActionListener{
         bookHotel.addActionListener(this);
         p2.add(bookHotel);
 
-        viewBookHotel = new JButton("View book hotel");
+        viewBookHotel = new JButton("View / Delete hotel");
         viewBookHotel.setFont(new Font("Raleway", Font.PLAIN, 18));
         viewBookHotel.setBounds(0, 450, 220, 50);
         viewBookHotel.setForeground(Color.black);
@@ -194,7 +197,7 @@ public class Dashboard extends JFrame implements ActionListener{
         about.addActionListener(this);
         p2.add(about);
 
-        ImageIcon i11 = new ImageIcon(ClassLoader.getSystemResource("icons/home.jpg"));
+        ImageIcon i11 = new ImageIcon(ClassLoader.getSystemResource("icons/dashboard.jpg"));
         Image i22 = i11.getImage().getScaledInstance(1600, 800, Image.SCALE_DEFAULT);
         ImageIcon i33 = new ImageIcon(i22);
 
@@ -202,10 +205,10 @@ public class Dashboard extends JFrame implements ActionListener{
         image1.setBounds(0, 0, 1600, 800);
         add(image1);
 
-        JLabel text1 = new JLabel("Travel around the world");
-        text1.setBounds(600, 80, 800, 50);
-        text1.setFont(new Font("Raleway", Font.PLAIN, 55));
-        text1.setForeground(Color.white);
+        JLabel text1 = new JLabel("Welcome to TravelSphere");
+        text1.setBounds(550, 80, 800, 50);
+        text1.setFont(new Font("Raleway", Font.BOLD, 55));
+        text1.setForeground(Color.ORANGE);
         image1.add(text1);
 
         setVisible (true);
@@ -250,6 +253,31 @@ public class Dashboard extends JFrame implements ActionListener{
         }
         else if(ae.getSource() == bookHotel){
             new BookHotel(username).setVisible(true);
+        }
+        else if(ae.getSource() == viewBookHotel){
+            new ViewBookHotel(username).setVisible(true);
+        }
+        else if(ae.getSource() == calculator){
+            try {
+                Runtime.getRuntime().exec("calc.exe");
+            }
+            catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        else if(ae.getSource() == notepad){
+            try{
+                Runtime.getRuntime().exec("notepad.exe");
+            }
+            catch (Exception e){
+                System.out.println(e);
+            }
+        }
+        else if (ae.getSource() == payment){
+            new Payment(username).setVisible(true);
+        }
+        else if (ae.getSource() == about){
+            new About(username).setVisible(true);
         }
     }
 

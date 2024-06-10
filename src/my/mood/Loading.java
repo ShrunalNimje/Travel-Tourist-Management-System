@@ -18,8 +18,8 @@ public class Loading extends JFrame implements Runnable{
         getContentPane().setBackground(Color.gray);
         setLayout(null);
 
-        JLabel text = new JLabel("WELCOME TO TRAVEL AROUND THE WORLD");
-        text.setBounds(350,100, 600, 30);
+        JLabel text = new JLabel("Welcome to TravelSphere");
+        text.setBounds(450,100, 600, 30);
         text.setFont(new Font("Arial", Font.BOLD, 24));
         add(text);
 

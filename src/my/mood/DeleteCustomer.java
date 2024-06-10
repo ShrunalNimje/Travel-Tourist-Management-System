@@ -186,12 +186,12 @@ public class DeleteCustomer extends JFrame implements ActionListener{
                 String query = "delete from signup where username = '"+username+"'";
                 String query1 = "delete from Customer where username = '"+username+"'";
                 String query2 = "delete from Package where username = '"+username+"'";
-                // String query3 = "delete from Hotel where username = '"+username+"'";
+                String query3 = "delete from Hotel where username = '"+username+"'";
 
                 DBc.s.executeUpdate(query);
                 DBc.s.executeUpdate(query1);
                 DBc.s.executeUpdate(query2);
-                // DBc.s.executeUpdate(query3);
+                DBc.s.executeUpdate(query3);
 
                 JOptionPane.showMessageDialog(null, "Account deleted successfully!");
 

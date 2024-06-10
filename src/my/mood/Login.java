@@ -36,9 +36,9 @@ public class Login extends JFrame implements ActionListener{
         image.setBounds(60, 60, 400, 400);
         two.add(image);
 
-        JLabel text = new JLabel("TRAVEL AROUND THE WORLD");
+        JLabel text = new JLabel("Welcome to TravelSphere");
         text.setFont(new Font("Arial", Font.BOLD, 24));
-        text.setBounds(150, 60, 400, 25);
+        text.setBounds(170, 60, 400, 25);
         one.add(text);
 
         JLabel usernameL = new JLabel("Username ");
